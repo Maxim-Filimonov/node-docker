@@ -4,8 +4,10 @@ ENV APP_HOME /app
 RUN mkdir /app
 WORKDIR /app
 
-ADD . /app
+ADD package.json package.json
+RUN npm install
 
-RUN cd /app; npm install
+ADD . /app
+RUN cd /app; 
 
 CMD ["node","index.js"]
